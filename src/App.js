@@ -1,9 +1,21 @@
-import './App.css';
-import Home from './pages/Home';
+import Skills from './Skills';
+import Player from './components/Player/Player';
+import Hiscores from './components/Hiscores/Hiscores';
+import Quests from './components/Quests/Quests';
+import './App.module.css';
 
 function App() {
     return (
-        <Home />
+        <>
+            <header>
+                <Player />
+            </header>
+            <main>
+                <section>
+                    <Hiscores skills={Skills} />
+                </section>
+            </main>
+        </>
     );
 }
 

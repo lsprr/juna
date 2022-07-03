@@ -1,0 +1,27 @@
+.search-player {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.search-player-input {
+  background-color: #807065;
+  border-radius: 5px;
+  color: #e2dbc8;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  line-height: inherit;
+  width: 150px;
+}
+
+.search-player-button {
+  background-color: #e2dbc8;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  margin-left: 2px;
+  line-height: inherit;
+}
