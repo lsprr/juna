@@ -1,2 +1,3 @@
 # juna
-🐍 Tracks your Old School Runescape player progress
+
+🐍 Tracks your Old School Runescape quests progress
