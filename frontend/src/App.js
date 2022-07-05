@@ -1,13 +1,31 @@
 import { useState, useEffect, useCallback } from 'react';
 import Skills from './Skills';
-import Player from './components/Player/Player';
 import Hiscores from './components/Hiscores/Hiscores';
 import Quests from './components/Quests/Quests';
 import './App.module.css';
 
+const merge = (...args) => {
+    let target = {};
+    const merger = (obj) => {
+        for (let prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                if (Object.prototype.toString.call(obj[prop]) === '[object Object]') {
+                    target[prop] = merge(target[prop], obj[prop]);
+                } else {
+                    target[prop] = obj[prop];
+                }
+            }
+        }
+    };
+    for (let i = 0; i < args.length; i++) {
+        merger(args[i]);
+    }
+    return target;
+};
+
 const App = () => {
     const [username, setUsername] = useState('');
-    const [stats, setStats] = useState([]);
+    const [stats, setStats] = useState(Skills);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -17,32 +35,36 @@ const App = () => {
         setError(null);
 
         try {
-            const response = await fetch(`http://localhost:8080/stats/`);
+            const response = await fetch(`http://localhost:8080/stats/${username}`);
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
             const data = await response.json();
-            setStats(data);
+            const newData = merge(data.skills, Skills);
+            setStats(newData);
         } catch (error) {
             setError(error.message);
         }
+
         setIsLoading(false);
-    }, []);
+
+    }, [username]);
 
     useEffect(() => {
-        fetchOSRSStats();
-    }, [fetchOSRSStats]);
+        if (username) {
+            fetchOSRSStats();
+        }
+    }, [username, fetchOSRSStats]);
 
-    console.log(stats);
+    console.log(isLoading);
 
     return (
         <>
-            <header>
-                <Player />
-            </header>
             <main>
                 <section>
-                    <Hiscores skills={Skills} stats={stats} />
+                    <aside>
+                        <Hiscores stats={stats} getPlayerUsername={setUsername} />
+                    </aside>
                 </section>
             </main>
         </>

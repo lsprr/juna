@@ -1,11 +1,11 @@
-.search-player {
+.search-by-name {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 1rem;
   width: 100%;
 }
 
-.search-player-input {
+.search-by-name-input {
   background-color: #807065;
   border-radius: 5px;
   color: #e2dbc8;
@@ -16,7 +16,7 @@
   width: 150px;
 }
 
-.search-player-button {
+.search-by-name-button {
   background-color: #e2dbc8;
   border-radius: 5px;
   font-family: inherit;

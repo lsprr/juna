@@ -1,15 +1,20 @@
-main {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; */
-  margin: auto;
-  max-width: 845px;
-  /* width: 100%; */
+main,
+section,
+aside {
+  height: 100%;
+  width: 100%;
 }
 
-/* aside {
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 845px;
+  width: 100%;
+}
+
+aside {
   display: flex;
   flex-direction: column;
-  flex-basis: 100%;
-  flex: 1;
-} */
+}

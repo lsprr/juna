@@ -1,4 +1,4 @@
-.skill-entry {
+.skill {
   display: flex;
   align-items: center;
   width: 78px;
@@ -24,7 +24,7 @@
   display: flex;
 }
 
-.skill-input {
+.skill-current-level {
   text-shadow: 1px 1px black;
   background: transparent;
   color: yellow;
@@ -42,7 +42,7 @@
   z-index: 12;
 }
 
-.skill-divider {
+.skill-slash {
   width: 1.5px;
   height: 25px;
   background-color: black;
